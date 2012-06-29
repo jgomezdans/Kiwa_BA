@@ -1,0 +1,12 @@
+*****************************
+Getting hold of the data
+*****************************
+
+The first step is to get hold of all available data. In principle, 
+we will use the `GLOVIS website <http://glovis.usgs.gov>`_ from the 
+USGS to list all available acquisitions from both Landsat 5 TM and 
+Landsat 7 ETM, order and download the data.
+
+.. image:: snapshot1.png
+
+   alt: The main GLOVIS webpage
