@@ -1,16 +1,17 @@
-.. Kiwa burned area project  documentation master file, created by
-   sphinx-quickstart on Fri Jun 29 13:11:22 2012.
+.. Tanzania/Kiwa burned area documentation master file, created by
+   sphinx-quickstart on Fri Jun 29 12:52:22 2012.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Kiwa burned area project 's documentation!
+Welcome to Tanzania/Kiwa burned area's documentation!
 =====================================================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
-
+   
+   getting_the_data.rst
 
 
 Indices and tables
