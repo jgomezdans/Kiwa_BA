@@ -10,6 +10,9 @@ Landsat 7 ETM, order and download the data.
 .. image:: snapshot1.png
    :alt: The main GLOVIS webpage
    
+It is useful if you create an account on this website (click on 
+``Register`` for the typical website account setting up).
+   
 The region of interest extends the following area:
 
 NE corner 
@@ -70,13 +73,16 @@ you to the files to download when they are ready.
 
 Once you get the confirmation emails, you can proceed to download the
 files. It is recommended that you download them using a command-line
-tool such as ``wget`` or ``curl``. These are installed in the machines
-in the UCL system, so you would just change directory to your work
-space (``cd ~/Data/``, for example), and issue the commands required
-there. This will download the relevant files in that directory.
+tool such as `wget <http://www.gnu.org/software/wget/manual/wget.html>`_ 
+or `curl <http://curl.haxx.se/docs/manpage.html>`_. These are 
+installed in the machines in the UCL system, so you would just change 
+directory to your work space (``cd ~/Data/``, for example), and issue
+the commands required there. This will download the relevant files in
+that directory.
 
-.. todo::
+.. note::
 
-  I need to do an example ``wget`` demonstration here, and to make
-  sure I provide a set of fool-proof command-line options.
-
+  There are plenty of good resources on the Internet on using ``wget``
+  or ``curl`` for automated downloading. See e.g. 
+  `this site <http://daipratt.co.uk/wget-tricks-tips/>`_ or 
+  `Wikipedia <http://en.wikipedia.org/wiki/Wget#Using_Wget>`_.
