@@ -10,8 +10,9 @@
     
     <title>Converting to surface reflectance &mdash; Kiwa burned area project  0.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -25,28 +26,27 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="Kiwa burned area project  0.1 documentation" href="index.html" />
     <link rel="prev" title="Getting hold of the data" href="getting_the_data.html" /> 
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="getting_the_data.html" title="Getting hold of the data"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Kiwa burned area project  0.1 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Kiwa burned area project  0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Converting to surface reflectance</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="getting_the_data.html">Getting hold of the data</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
-            
+      </div>
+      <div class="content">
+        
+        
   <div class="section" id="converting-to-surface-reflectance">
 <h1>Converting to surface reflectance<a class="headerlink" href="#converting-to-surface-reflectance" title="Permalink to this headline">¶</a></h1>
 <p>The downloaded files contain data which are in scaled units of radiance.
@@ -58,51 +58,56 @@ from the GLOVIS product) will be generated. These processes are not
 straightforward, and they are computationally demanding. Thankfully,
 by making use of some scripts, the operation of the processing chain is
 relatively straightforward.</p>
+<p>The script will basically scan the directory where you start it from
+for GLOVIS-like files. It will then try to ascertain whether these
+files have been processed (the process produces a directory, and the
+script will check for the existance of the final product file in the
+corresponding directory). If the file is deemed unprocessed, the script
+will stage processing in one of the machines available at UCL: it will
+copy the data over to the temporary storage space of the processing
+machine, and will then run the processing there. Once this is finished,
+it will copy the data over the network to your user space.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently, I do not have access to the processing script, so this
+needs a good working example, and I think that the script requires
+a few modifications to work as advertised.</p>
+</div>
+<div class="section" id="converting-to-useful-data-formats">
+<h2>Converting to useful data formats<a class="headerlink" href="#converting-to-useful-data-formats" title="Permalink to this headline">¶</a></h2>
+<p>Once the data has been processed, it will be available in HDF format.
+While this format has its advantages, it&#8217;s quite cumbersome to work
+with. In addition to this, a set of derived reflectance-based indices
+are required to more easily distinguish fires. Finally, active fire
+data from the MODIS sensors on board the TERRA and AQUA sensors will also
+be mapped to the 30m TM data. These two extra datasets are</p>
+<dl class="docutils">
+<dt><math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mo>Δ</mo><mi>N</mi><mi>B</mi><mi>R</mi></mrow></math></dt>
+<dd>This combination of bands has been shown to be sensitive to defoliation caused by fires. It is expected that it will be more useful in high tree cover.</dd>
+<dt><math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mo>Δ</mo><mi>N</mi><mi>D</mi><mi>V</mi><mi>I</mi></mrow></math></dt>
+<dd><blockquote class="first">
+<div>This combination is again sensitive to changes in green/photosynthetic material.</div></blockquote>
+<p class="last">It is expected that a reasonable 3 colour composite, plus the</p>
+</dd>
+</dl>
+<p>change ratios and active fire observations will help identify burn scars.</p>
+</div>
 </div>
 
 
-          </div>
-        </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="getting_the_data.html"
-                        title="previous chapter">Getting hold of the data</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/convert_to_brf.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="getting_the_data.html">Getting hold of the data</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="getting_the_data.html" title="Getting hold of the data"
-             >previous</a> |</li>
-        <li><a href="index.html">Kiwa burned area project  0.1 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
+
     <div class="footer">
         &copy; Copyright 2012, J Gómez-Dans.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.

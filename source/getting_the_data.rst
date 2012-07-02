@@ -67,7 +67,12 @@ Once the the added scenes have been set to the cart, a new window
 will open. There will be a prompt to either use your GLOVIS account,
 or some way of inputting your email address. This is required, as 
 most of the data is not directly accessible, but needs to be staged
-for downloading. This process can take a couple of days to clear, but
+for downloading. You will need to confirm your selection, and you will
+need to select files to download. "Quick-looks" are available. These
+are reduced resolution images that give a visual impression of the data,
+but these are not required
+
+This process can take a couple of days to clear, but
 most often only takes a few hours. You will get email alerts directing
 you to the files to download when they are ready. 
 
@@ -86,3 +91,7 @@ that directory.
   or ``curl`` for automated downloading. See e.g. 
   `this site <http://daipratt.co.uk/wget-tricks-tips/>`_ or 
   `Wikipedia <http://en.wikipedia.org/wiki/Wget#Using_Wget>`_.
+
+A sample wget command::
+
+  wget -c -nc -nv ftp://blah blah blah
