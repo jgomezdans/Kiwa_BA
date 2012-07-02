@@ -54,6 +54,63 @@ we will use the <a class="reference external" href="http://glovis.usgs.gov">GLOV
 USGS to list all available acquisitions from both Landsat 5 TM and
 Landsat 7 ETM, order and download the data.</p>
 <img alt="The main GLOVIS webpage" src="_images/snapshot1.png" />
+<p>The region of interest extends the following area:</p>
+<dl class="docutils">
+<dt>NE corner</dt>
+<dd>8d11&#8216;53&#8221;S, 39d33&#8216;42&#8221;E</dd>
+<dt>NW corner</dt>
+<dd>8d21&#8216;11&#8221;S, 38d33&#8216;30&#8221;E</dd>
+<dt>SW corner</dt>
+<dd>9d58&#8216;37&#8221;S, 38d38&#8216;10&#8221;E</dd>
+<dt>SE corner</dt>
+<dd>9d55&#8216;02&#8221;S, 39d55&#8216;06&#8221;E</dd>
+</dl>
+<p>This area is covered by multiple TM scenes, which will probably make
+it easier to locate acquisitions. The path and row can be indicated on
+the WRS-2 Path/Row entry box just below the world map on the left
+hand site of the GLOVIS window:</p>
+<ul class="simple">
+<li>165/66</li>
+<li>165/67</li>
+<li>166/66</li>
+<li>166/67</li>
+</ul>
+<p>Before selecting the scene, it&#8217;s useful to set the <tt class="docutils literal"><span class="pre">Max</span> <span class="pre">Cloud</span></tt> option
+to 100%. This setting allows for limiting results that may be too cloudy,
+but this is irrelevant for this project, so set it to 100% (effectively
+ignore it). Enter the path/row combinations on the box and press
+<tt class="docutils literal"><span class="pre">Go</span></tt>. The big display window on the right hand side will show some
+recent acquisitions over the area of interest, with the central scene
+bordered in yellow. In the bottom left of the screen, you can read some
+scene information.</p>
+<p>The process is then fairly straightforward. For each path &amp; row:</p>
+<ol class="arabic simple">
+<li>Go to the beggining of the time period, and get the first available acquisitions</li>
+<li>Click on &#8220;Add&#8221; (at the bottom of the <tt class="docutils literal"><span class="pre">L4-7</span> <span class="pre">Combined</span> <span class="pre">Scene</span> <span class="pre">List</span></tt> widget)</li>
+<li>Make a note of the scene ID number (in the <tt class="docutils literal"><span class="pre">Scene</span> <span class="pre">Information</span></tt> box), as well as of the acquisition data, and path/row information.</li>
+<li>Go to the next scene (<tt class="docutils literal"><span class="pre">Next</span> <span class="pre">Scene</span></tt> button)</li>
+<li>Repeat until you have all the available scenes.</li>
+<li>Click on <tt class="docutils literal"><span class="pre">Send</span> <span class="pre">to</span> <span class="pre">Cart</span></tt>.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It might be worthwile to do this by year, bagging all the scenes in
+a given year. That way, if there&#8217;s any problem or crash, only one year
+needs to be re-entered.</p>
+</div>
+<p>Once the the added scenes have been set to the cart, a new window
+will open. There will be a prompt to either use your GLOVIS account,
+or some way of inputting your email address. This is required, as
+most of the data is not directly accessible, but needs to be staged
+for downloading. This process can take a couple of days to clear, but
+most often only takes a few hours. You will get email alerts directing
+you to the files to download when they are ready.</p>
+<p>Once you get the confirmation emails, you can proceed to download the
+files. It is recommended that you download them using a command-line
+tool such as <tt class="docutils literal"><span class="pre">wget</span></tt> or <tt class="docutils literal"><span class="pre">curl</span></tt>. These are installed in the machines
+in the UCL system, so you would just change directory to your work
+space (<tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~/Data/</span></tt>, for example), and issue the commands required
+there. This will download the relevant files in that directory.</p>
 </div>
 
 

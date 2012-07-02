@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 2
    
    getting_the_data.rst
-
+   convert_to_brf.rst
 
 Indices and tables
 ==================
