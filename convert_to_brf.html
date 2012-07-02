@@ -89,15 +89,21 @@ be mapped to the 30m TM data. These two extra datasets are</p>
 <dl class="docutils">
 <dt><math xmlns="http://www.w3.org/1998/Math/MathML">
 <mrow><mo>Δ</mo><mi>N</mi><mi>B</mi><mi>R</mi></mrow></math></dt>
-<dd>This combination of bands has been shown to be sensitive to defoliation caused by fires. It is expected that it will be more useful in high tree cover.</dd>
+<dd>This combination of bands has been shown to be sensitive to defoliation caused by fires. It is expected that it will be more useful in high tree cover. The NBR of a TM image is given by <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mi>N</mi><mi>B</mi><mi>R</mi><mo>=</mo><mfrac>
+<mrow><mi>B</mi><mn>4</mn><mo>-</mo><mi>B</mi><mn>7</mn></mrow>
+<mrow><mi>B</mi><mn>4</mn><mo>+</mo><mi>B</mi><mn>7</mn></mrow></mfrac></mrow></math>. This layer is the temporal difference in <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mi>N</mi><mi>B</mi><mi>R</mi></mrow></math> between two dates.</dd>
 <dt><math xmlns="http://www.w3.org/1998/Math/MathML">
 <mrow><mo>Δ</mo><mi>N</mi><mi>D</mi><mi>V</mi><mi>I</mi></mrow></math></dt>
-<dd><blockquote class="first">
-<div>This combination is again sensitive to changes in green/photosynthetic material.</div></blockquote>
-<p class="last">It is expected that a reasonable 3 colour composite, plus the</p>
-</dd>
+<dd>This combination is again sensitive to changes in green/photosynthetic material. The NDVI is given by <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mfrac>
+<mrow><mi>B</mi><mn>4</mn><mo>-</mo><mi>B</mi><mn>3</mn></mrow>
+<mrow><mi>B</mi><mn>4</mn><mo>+</mo><mi>B</mi><mn>3</mn></mrow></mfrac></mrow></math>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mo>Δ</mo><mi>N</mi><mi>D</mi><mi>V</mi><mi>I</mi></mrow></math> is just the difference in NDVI between two dates.</dd>
 </dl>
-<p>change ratios and active fire observations will help identify burn scars.</p>
+<p>It is expected that a reasonable 3 colour composite, plus the  change
+ratios and active fire observations will help identify burn scars.</p>
 </div>
 </div>
 
