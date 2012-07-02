@@ -1,6 +1,16 @@
 *****************************
 Getting hold of the data
 *****************************
+.. note::
+
+   There are many resources on how to go on about downloading data
+   from GLOVIS on the web. See e.g. `this one <http://serc.carleton.edu/earth_analysis/image_analysis/advanced/day_2_part_1.html>`_
+   or use Google to do further searches. This document will focus on
+   how to download significant amounts of data on the UCL system using
+   Linux, not just a single file. The other tutorials to be found on 
+   the internet are useful to make you acquainted with the system.
+   
+
 
 The first step is to get hold of all available data. In principle, 
 we will use the `GLOVIS website <http://glovis.usgs.gov>`_ from the 
@@ -76,6 +86,10 @@ This process can take a couple of days to clear, but
 most often only takes a few hours. You will get email alerts directing
 you to the files to download when they are ready. 
 
+Downloading files `au naturel`
+----------------------------------
+
+
 Once you get the confirmation emails, you can proceed to download the
 files. It is recommended that you download them using a command-line
 tool such as `wget <http://www.gnu.org/software/wget/manual/wget.html>`_ 
@@ -92,6 +106,21 @@ that directory.
   `this site <http://daipratt.co.uk/wget-tricks-tips/>`_ or 
   `Wikipedia <http://en.wikipedia.org/wiki/Wget#Using_Wget>`_.
 
-A sample wget command ::
+A sample wget command::
 
-wget -c -nc -nv ftp://blah blah blah
+  wget -c -nc -nv ftp://blah blah blah
+  
+Using the bulk download application (recommended)
+---------------------------------------------------------
+
+This method is quite straightforward to use to download a bunch of images.
+Once you have all your acquisition IDs ("Entity IDs" in the GLOVIS parlance),
+you can put all of them together in a text file. Once your file requests
+have been submitted and the data have been processed, you  can go to the
+`bulk download page <http://earthexplorer.usgs.gov/order/bulkdownload/>`_, and
+grab a tool that will do a bulk download.
+
+.. todo::
+
+   This is to be tested really...
+

@@ -52,6 +52,15 @@
         
   <div class="section" id="getting-hold-of-the-data">
 <h1>Getting hold of the data<a class="headerlink" href="#getting-hold-of-the-data" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There are many resources on how to go on about downloading data
+from GLOVIS on the web. See e.g. <a class="reference external" href="http://serc.carleton.edu/earth_analysis/image_analysis/advanced/day_2_part_1.html">this one</a>
+or use Google to do further searches. This document will focus on
+how to download significant amounts of data on the UCL system using
+Linux, not just a single file. The other tutorials to be found on
+the internet are useful to make you acquainted with the system.</p>
+</div>
 <p>The first step is to get hold of all available data. In principle,
 we will use the <a class="reference external" href="http://glovis.usgs.gov">GLOVIS website</a> from the
 USGS to list all available acquisitions from both Landsat 5 TM and
@@ -114,6 +123,8 @@ but these are not required</p>
 <p>This process can take a couple of days to clear, but
 most often only takes a few hours. You will get email alerts directing
 you to the files to download when they are ready.</p>
+<div class="section" id="downloading-files-au-naturel">
+<h2>Downloading files <cite>au naturel</cite><a class="headerlink" href="#downloading-files-au-naturel" title="Permalink to this headline">¶</a></h2>
 <p>Once you get the confirmation emails, you can proceed to download the
 files. It is recommended that you download them using a command-line
 tool such as <a class="reference external" href="http://www.gnu.org/software/wget/manual/wget.html">wget</a>
@@ -131,6 +142,16 @@ or <tt class="docutils literal"><span class="pre">curl</span></tt> for automated
 </div>
 <p>A sample wget command:</p>
 <div class="highlight-python"><pre>wget -c -nc -nv ftp://blah blah blah</pre>
+</div>
+</div>
+<div class="section" id="using-the-bulk-download-application-recommended">
+<h2>Using the bulk download application (recommended)<a class="headerlink" href="#using-the-bulk-download-application-recommended" title="Permalink to this headline">¶</a></h2>
+<p>This method is quite straightforward to use to download a bunch of images.
+Once you have all your acquisition IDs (&#8220;Entity IDs&#8221; in the GLOVIS parlance),
+you can put all of them together in a text file. Once your file requests
+have been submitted and the data have been processed, you  can go to the
+<a class="reference external" href="http://earthexplorer.usgs.gov/order/bulkdownload/">bulk download page</a>, and
+grab a tool that will do a bulk download.</p>
 </div>
 </div>
 
