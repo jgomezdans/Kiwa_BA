@@ -127,10 +127,9 @@ download, and select the orders (check your email for order numbers)
 to download. Below is a screenshot of a download session.
 
 .. image:: bulk_download_screeny.png
-
    :alt: Bulk download tool.
 
-.. todo::
+.. note::
 
    This is to be tested really...
 

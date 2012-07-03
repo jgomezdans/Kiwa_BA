@@ -124,7 +124,7 @@ bulk download does not seem to work with Google Chrome, but works fine
 with Firefox. Once the bulk download tool is installed, you log on using
 your USGS username and password, select a target directory for the 
 download, and select the orders (check your email for order numbers)
-to download.
+to download. Below is a screenshot of a download session.
 
 .. image:: bulk_download_screeny.png
 
