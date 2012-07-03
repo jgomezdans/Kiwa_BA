@@ -118,7 +118,17 @@ Once you have all your acquisition IDs ("Entity IDs" in the GLOVIS parlance),
 you can put all of them together in a text file. Once your file requests
 have been submitted and the data have been processed, you  can go to the
 `bulk download page <http://earthexplorer.usgs.gov/order/bulkdownload/>`_, and
-grab a tool that will do a bulk download.
+grab a tool that will do a bulk download. The tool can be downloaded 
+`from here <http://earthexplorer.usgs.gov/bulk/>`_. Note that the 
+bulk download does not seem to work with Google Chrome, but works fine
+with Firefox. Once the bulk download tool is installed, you log on using
+your USGS username and password, select a target directory for the 
+download, and select the orders (check your email for order numbers)
+to download.
+
+.. image:: bulk_download_screeny.png
+
+   :alt: Bulk download tool.
 
 .. todo::
 
