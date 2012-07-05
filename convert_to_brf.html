@@ -71,11 +71,75 @@ will stage processing in one of the machines available at UCL: it will
 copy the data over to the temporary storage space of the processing
 machine, and will then run the processing there. Once this is finished,
 it will copy the data over the network to your user space.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Currently, I do not have access to the processing script, so this
-needs a good working example, and I think that the script requires
-a few modifications to work as advertised.</p>
+<div class="section" id="practical-example">
+<h3>Practical example<a class="headerlink" href="#practical-example" title="Permalink to this headline">¶</a></h3>
+<p>For this example, it will be assumed that the data files have been
+downloaded to <tt class="docutils literal"><span class="pre">~/Data/</span></tt>. In this directory, you will have a number
+of ETM7 and TM5 files like this</p>
+<div class="highlight-python"><pre>-rw-rw-r-- 1 ucfajlg ucfajlg 225M May 17 19:22 LE71660662011164ASN00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 242M May 17 19:27 LE71660662011292ASN00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 241M May 17 19:34 LE71660662011308ASN00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 267M May 17 19:41 LE71660662011324ASN00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 215M May 17 19:47 LE71660662011340ASN00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 172M May 18 16:25 LT51650672010146JSA00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 143M May 18 16:19 LT51650672010194MLK00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 151M May 18 13:43 LT51650672011101JSA00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 166M May 18 13:49 LT51650672011181MLK01.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 122M May 18 14:23 LT51650672011229MLK00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 188M May 18 19:51 LT51660662010025MLK01.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 183M May 18 19:55 LT51660662010041MLK01.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 120M May 18 19:39 LT51660662010137JSA00.tar.gz
+-rw-rw-r-- 1 ucfajlg ucfajlg 192M May 18 20:00 LT51660662010233MLK00.tar.gz</pre>
+</div>
+<p>A shell script will process each of these files (which contain the raw
+satellite data) and produce a directory with the surface reflectance and
+cloud masks, as well as log files etc. This script needs 4 options:</p>
+<ol class="arabic simple">
+<li>The path to the directory where the data sit</li>
+<li>The Landsat &#8220;path&#8221;</li>
+<li>The Landsat &#8220;row&#8221;</li>
+<li>The year</li>
+</ol>
+<p>The script is simply invoked using the following command line</p>
+<div class="highlight-python"><pre>/data/geospatial_19/ucfajlg/LEDAPS/Tanzania/process_pr_year.sh /tmp/ 166 66 2011</pre>
+</div>
+<p>The script will in this case look for files in /tmp/ for path/row 166/066
+and acquisitions that occurred in 2011. As it won&#8217;t find any, it will
+complain and exit:</p>
+<div class="highlight-python"><pre>ls: *1660662011*.tar.gz: No such file or directory</pre>
+</div>
+<p>If we then change the path to the data directory to be one were these
+files exist (either where you downloaded them, or
+<tt class="docutils literal"><span class="pre">/data/geospatial_19/ucfajlg/LEDAPS/Tanzania/</span></tt>, where some files are
+available), then you will get a bit further:</p>
+<div class="highlight-python"><pre>$ ./process_pr_year.sh /data/geospatial_19/ucfajlg/LEDAPS/Tanzania/ 166 66 2011
+File LE71660662011084ASN00.tar.gz is already processed...
+File LE71660662011116ASN00.tar.gz is already processed...
+File LE71660662011132ASN00.tar.gz is already processed...
+File LE71660662011148ASN00.tar.gz is already processed...
+File LE71660662011164ASN00.tar.gz is already processed...
+File LE71660662011292ASN00.tar.gz is already processed...
+File LE71660662011308ASN00.tar.gz is already processed...
+File LE71660662011324ASN00.tar.gz is already processed...
+File LE71660662011340ASN00.tar.gz is already processed...
+File LT51660662011188MLK01.tar.gz is already processed...
+File LT51660662011204MLK00.tar.gz is already processed...</pre>
+</div>
+<p>Those files have already been processed. Assume that we have a new
+file that has not been processed. Assume also that we are in the same
+directory where processed files and the new file are. Let&#8217;s process
+the new file</p>
+<div class="highlight-python"><pre>/data/geospatial_19/ucfajlg/LEDAPS/Tanzania/process_pr_year.sh `pwd` 165 67 2011</pre>
+</div>
+<p>Using <tt class="docutils literal"><span class="pre">pwd</span></tt> just lets the script know to use the same directory
+where we are. You could easily just give it the directory where you
+keep your data.</p>
+<p>The script takes around 20-30 minutes to process one image on UCL&#8217;s
+computers. The results will be stored in a directory which is the
+name of the image, minus the <tt class="docutils literal"><span class="pre">.tar.gz</span></tt>. The file that contains the
+surface reflectance is <tt class="docutils literal"><span class="pre">lndsr.x.hdf</span></tt>. The file also contains a QA
+field, and a band with the estimates of the retrieved aerosol optical
+depth.</p>
 </div>
 </div>
 <div class="section" id="converting-to-useful-data-formats">
@@ -104,6 +168,54 @@ be mapped to the 30m TM data. These two extra datasets are</p>
 </dl>
 <p>It is expected that a reasonable 3 colour composite, plus the  change
 ratios and active fire observations will help identify burn scars.</p>
+<p>A single tool will process all the available Landsat data for a complete
+year. The output of this tool will be a set of virtual datasets for each
+Landsat band (except 6), as well as NDVI and NBR datasets. The scripts
+is very simple to use</p>
+<div class="highlight-python"><pre>/data/geospatial_19/ucfajlg/LEDAPS/Tanzania/process_sdr.py \
+-p 166 -r 66 -y 2011 -d /data/geospatial_19/ucfajlg/LEDAPS/Tanzania/</pre>
+</div>
+<p>In the previous line, the options are</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">-p</span> <span class="pre">166</span></tt> or <tt class="docutils literal"><span class="pre">--path</span> <span class="pre">166</span></tt></dt>
+<dd>Path 166</dd>
+<dt><tt class="docutils literal"><span class="pre">-r</span> <span class="pre">66</span></tt> or <tt class="docutils literal"><span class="pre">--row</span> <span class="pre">66</span></tt></dt>
+<dd>Row 66</dd>
+<dt><tt class="docutils literal"><span class="pre">-y</span> <span class="pre">2011</span></tt> or <tt class="docutils literal"><span class="pre">--year</span> <span class="pre">2011</span></tt></dt>
+<dd>Year to consider</dd>
+<dt><tt class="docutils literal"><span class="pre">-d</span> <span class="pre">/data/geospatial_19/ucfajlg/LEDAPS/Tanzania/</span></tt></dt>
+<dd>Search for Landsat files on this directory. You can ignore this option and the current directory will be searched for.</dd>
+</dl>
+<p>The above command takes a short while to complete, and there might be
+some runtime warnings that can be safely ignored. The resulting set of
+files is</p>
+<div class="highlight-python"><pre>-rw-rw-r-- 1 ucfajlg ucfajlg 9.1K Jul  5 16:03 p166066_2011_b01.vrt
+-rw-rw-r-- 1 ucfajlg ucfajlg 9.1K Jul  5 16:03 p166066_2011_b02.vrt
+-rw-rw-r-- 1 ucfajlg ucfajlg 9.1K Jul  5 16:03 p166066_2011_b03.vrt
+-rw-rw-r-- 1 ucfajlg ucfajlg 9.1K Jul  5 16:03 p166066_2011_b04.vrt
+-rw-rw-r-- 1 ucfajlg ucfajlg 9.1K Jul  5 16:03 p166066_2011_b05.vrt
+-rw-rw-r-- 1 ucfajlg ucfajlg 9.1K Jul  5 16:03 p166066_2011_b07.vrt
+-rw-rw-r-- 1 ucfajlg ucfajlg 499M Jul  5 16:05 p166066_2011_NBR.tif
+-rw-rw-r-- 1 ucfajlg ucfajlg 475M Jul  5 16:07 p166066_2011_NDVI.tif
+-rw-rw-r-- 1 ucfajlg ucfajlg 9.1K Jul  5 16:03 p166066_2011_QA.vrt</pre>
+</div>
+<p>The files with the <tt class="docutils literal"><span class="pre">.vrt</span></tt> extension are GDAL&#8217;s virtual datasets, and
+can&#8217;t be opened by e.g. Envi or similar. They can however be converted
+to GeoTIFF or any other formats using <tt class="docutils literal"><span class="pre">gdal_translate</span></tt>:</p>
+<div class="highlight-python"><pre>gdal_translate -of GTiff -co "COMPRESS=LZW" -co "INTERLEAVE=BAND" \
+  -co "TILED=YES" p166066_2011_b04.vrt p166066_2011_b04.tif</pre>
+</div>
+<p>Note that files will have metadata on each band detailing both the
+acquisition date, and the day of year. The band ordering increases with
+day of year. The extent of the raster file is the maximum extent
+needed to accommodate all the different acquisitions, and can change
+from year to year, even for the same path/row combination.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There&#8217;s no <math xmlns="http://www.w3.org/1998/Math/MathML">
+<mrow><mo>Δ</mo><mi>N</mi><mi>B</mi><mi>R</mi></mrow></math> calculations. It is unclear what is
+required for this at the moment.</p>
+</div>
 </div>
 </div>
 
