@@ -28,6 +28,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="Kiwa burned area project  0.1 documentation" href="index.html" />
+    <link rel="next" title="Dealing with Active Fires" href="active_fires.html" />
     <link rel="prev" title="Getting hold of the data" href="getting_the_data.html" /> 
   </head>
   <body>
@@ -41,6 +42,8 @@
         «&#160;&#160;<a href="getting_the_data.html">Getting hold of the data</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="active_fires.html">Dealing with Active Fires</a>&#160;&#160;»
         </p>
 
       </div>
@@ -151,20 +154,22 @@ are required to more easily distinguish fires. Finally, active fire
 data from the MODIS sensors on board the TERRA and AQUA sensors will also
 be mapped to the 30m TM data. These two extra datasets are</p>
 <dl class="docutils">
-<dt><math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mo>Δ</mo><mi>N</mi><mi>B</mi><mi>R</mi></mrow></math></dt>
-<dd>This combination of bands has been shown to be sensitive to defoliation caused by fires. It is expected that it will be more useful in high tree cover. The NBR of a TM image is given by <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mi>B</mi><mi>R</mi><mo>=</mo><mfrac>
-<mrow><mi>B</mi><mn>4</mn><mo>-</mo><mi>B</mi><mn>7</mn></mrow>
-<mrow><mi>B</mi><mn>4</mn><mo>+</mo><mi>B</mi><mn>7</mn></mrow></mfrac></mrow></math>. This layer is the temporal difference in <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mi>B</mi><mi>R</mi></mrow></math> between two dates.</dd>
-<dt><math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mo>Δ</mo><mi>N</mi><mi>D</mi><mi>V</mi><mi>I</mi></mrow></math></dt>
-<dd>This combination is again sensitive to changes in green/photosynthetic material. The NDVI is given by <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mi>N</mi><mi>D</mi><mi>V</mi><mi>I</mi><mo>=</mo><mfrac>
-<mrow><mi>B</mi><mn>4</mn><mo>-</mo><mi>B</mi><mn>3</mn></mrow>
-<mrow><mi>B</mi><mn>4</mn><mo>+</mo><mi>B</mi><mn>3</mn></mrow></mfrac></mrow></math>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mo>Δ</mo><mi>N</mi><mi>D</mi><mi>V</mi><mi>I</mi></mrow></math> is just the difference in NDVI between two dates.</dd>
+<dt><span class="math">
+\(\Delta NBR\)</span>
+</dt>
+<dd>This combination of bands has been shown to be sensitive to defoliation caused by fires. It is expected that it will be more useful in high tree cover. The NBR of a TM image is given by <span class="math">
+\(NBR=\frac{B4-B7}{B4+B7}\)</span>
+. This layer is the temporal difference in <span class="math">
+\(NBR\)</span>
+ between two dates.</dd>
+<dt><span class="math">
+\(\Delta NDVI\)</span>
+</dt>
+<dd>This combination is again sensitive to changes in green/photosynthetic material. The NDVI is given by <span class="math">
+\(NDVI=\frac{B4-B3}{B4+B3}\)</span>
+, and <span class="math">
+\(\Delta NDVI\)</span>
+ is just the difference in NDVI between two dates.</dd>
 </dl>
 <p>It is expected that a reasonable 3 colour composite, plus the  change
 ratios and active fire observations will help identify burn scars.</p>
@@ -210,12 +215,17 @@ acquisition date, and the day of year. The band ordering increases with
 day of year. The extent of the raster file is the maximum extent
 needed to accommodate all the different acquisitions, and can change
 from year to year, even for the same path/row combination.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">There&#8217;s no <math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow><mo>Δ</mo><mi>N</mi><mi>B</mi><mi>R</mi></mrow></math> calculations. It is unclear what is
-required for this at the moment.</p>
-</div>
+<p>The following vegetation indices are calculated for each scene:</p>
+<ul class="simple">
+<li>NDVI</li>
+<li>GEMI</li>
+<li>NBRS</li>
+<li>NBRL</li>
+<li>BAI</li>
+<li>BAIS</li>
+<li>BAIL</li>
+<li>MIRBI</li>
+</ul>
 </div>
 </div>
 
@@ -227,6 +237,8 @@ required for this at the moment.</p>
         «&#160;&#160;<a href="getting_the_data.html">Getting hold of the data</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="active_fires.html">Dealing with Active Fires</a>&#160;&#160;»
         </p>
 
       </div>

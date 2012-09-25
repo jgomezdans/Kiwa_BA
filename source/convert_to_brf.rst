@@ -173,10 +173,16 @@ day of year. The extent of the raster file is the maximum extent
 needed to accommodate all the different acquisitions, and can change
 from year to year, even for the same path/row combination.
 
-.. note:: 
+The following vegetation indices are calculated for each scene:
 
-   There's no :math:`\Delta NBR` calculations. It is unclear what is
-   required for this at the moment.
+* NDVI
+* GEMI
+* NBRS
+* NBRL
+* BAI
+* BAIS
+* BAIL
+* MIRBI
 
 
 

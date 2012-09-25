@@ -13,6 +13,7 @@ Contents:
    
    getting_the_data.rst
    convert_to_brf.rst
+   active_fires.rst
 
 Indices and tables
 ==================
